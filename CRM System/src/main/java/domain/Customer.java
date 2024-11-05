@@ -1,4 +1,4 @@
-package com.yrgo.domain;
+package domain;
 
 import java.util.ArrayList;
 import java.util.List;
