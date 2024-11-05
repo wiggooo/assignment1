@@ -1,9 +1,8 @@
-package domain.test;
+package com.yrgo.domain.test;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import domain.Action;
 import org.junit.Test;
 
 import com.yrgo.domain.Action;
