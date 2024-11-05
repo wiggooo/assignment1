@@ -2,6 +2,7 @@ package com.yrgo.services.customers;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.ArrayList;
 
 import com.yrgo.domain.Call;
 import com.yrgo.domain.Customer;
@@ -19,51 +20,55 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 
 	@Override
 	public void newCustomer(Customer newCustomer) {
-
+		customerMap.put(newCustomer.getCustomerId(), newCustomer);
 	}
 
 	@Override
 	public void updateCustomer(Customer changedCustomer) {
-
-
+		customerMap.put(changedCustomer.getCustomerId(), changedCustomer);
 	}
 
 	@Override
 	public void deleteCustomer(Customer oldCustomer) {
-		// TODO Auto-generated method stub
+		customerMap.remove(oldCustomer.getCustomerId());
 
 	}
 
 	@Override
 	public Customer findCustomerById(String customerId) throws CustomerNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		Customer customer = customerMap.get(customerId);
+		if (customer == null) {
+			throw new CustomerNotFoundException();
+		}
+		return customer;
 	}
 
 	@Override
 	public List<Customer> findCustomersByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Customer> matchingCustomers = new ArrayList<>();
+		for (Customer customer : customerMap.values()) {
+			if (customer.getName().equalsIgnoreCase(name)) {
+				matchingCustomers.add(customer);
+			}
+		}
+		return matchingCustomers;
 	}
 
 	@Override
 	public List<Customer> getAllCustomers() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ArrayList<>(customerMap.values());
 	}
 
 	@Override
 	public Customer getFullCustomerDetail(String customerId) throws CustomerNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		Customer customer = findCustomerById(customerId);  // Återanvänder den tidigare metoden
+		return customer;
 	}
 
 	@Override
 	public void recordCall(String customerId, Call callDetails) throws CustomerNotFoundException {
-		//First find the customer
-
-		//Call the addCall on the customer
-
+		Customer customer = findCustomerById(customerId);  // Hämta kunden (eller kasta undantag om ej hittad)
+		customer.addCall(callDetails);  // Lägg till samtalet för kunden
 	}
 
 }

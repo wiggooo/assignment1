@@ -1,4 +1,4 @@
-package domain;
+package com.yrgo.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,4 +98,8 @@ public class Customer {
 
 	// needed for JPA - ignore until then
 	public Customer() {}
+
+	public String getName() {
+		return null;
+	}
 }

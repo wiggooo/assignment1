@@ -1,14 +1,12 @@
-package domain.test;
+package com.yrgo.domain.test;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import domain.Action;
-import org.junit.Test;
-
 import com.yrgo.domain.Action;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestActions{
 
