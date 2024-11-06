@@ -61,14 +61,14 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 
 	@Override
 	public Customer getFullCustomerDetail(String customerId) throws CustomerNotFoundException {
-		Customer customer = findCustomerById(customerId);  // Återanvänder den tidigare metoden
+		Customer customer = findCustomerById(customerId);  // Reuse method from earlier
 		return customer;
 	}
 
 	@Override
 	public void recordCall(String customerId, Call callDetails) throws CustomerNotFoundException {
-		Customer customer = findCustomerById(customerId);  // Hämta kunden (eller kasta undantag om ej hittad)
-		customer.addCall(callDetails);  // Lägg till samtalet för kunden
+		Customer customer = findCustomerById(customerId);  // Fetch customer of throw exception if not found
+		customer.addCall(callDetails);  // Add call for customer
 	}
 
 }

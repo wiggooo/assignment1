@@ -16,8 +16,8 @@ public class SimpleClient {
         // Get the CustomerManagementService bean
         CustomerManagementService customerService = (CustomerManagementService) context.getBean("customerManagementService");
 
-        // Add a new customer
-        Customer newCustomer = new Customer("MJ45", "Mars Ltd", "Initial notes");
+        // Adding new customer
+        Customer newCustomer = new Customer("DF45", "Cupido Ltd", "Initial notes");
         customerService.newCustomer(newCustomer);
 
         // Retrieve and print all customers
